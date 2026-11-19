@@ -1,0 +1,136 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  color-scheme: light;
+  --cb-bg: #f6f8fc;
+  --cb-surface: #ffffff;
+  --cb-surface-muted: #eef2f9;
+  --cb-border: rgba(15, 23, 42, 0.09);
+  --cb-text: #0f172a;
+  --cb-text-muted: #475569;
+  --cb-accent-rose: #e11d48;
+  --cb-accent-indigo: #6366f1;
+  --cb-accent-sky: #0ea5e9;
+}
+
+.dark {
+  color-scheme: dark;
+  --cb-bg: #090b10;
+  --cb-surface: #111520;
+  --cb-surface-muted: #171d2b;
+  --cb-border: rgba(255, 255, 255, 0.08);
+  --cb-text: #f1f5f9;
+  --cb-text-muted: #94a3b8;
+}
+
+@layer base {
+  html {
+    background-color: var(--cb-bg);
+    color: var(--cb-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--cb-bg);
+    color: var(--cb-text);
+    overflow-x: hidden;
+  }
+
+  button:not(:disabled),
+  a[href],
+  select:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Brand Wordmark */
+.cinebox-brand-gradient {
+  color: #e11d48;
+}
+
+.cinebox-card-elevated {
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.cinebox-card-elevated:hover {
+  border-color: rgba(225, 29, 72, 0.35);
+}
+
+/* Modern Cinema Video Subtitle & Player Styles */
+video::cue {
+  background-color: rgba(9, 11, 16, 0.85);
+  color: #ffffff;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+/* Custom Sleek Slider Thumb for Video Scrubber and Volume */
+input[type="range"].cinema-slider {
+  accent-color: #e11d48;
+}
+
+video.cinebox-native-video::-webkit-media-controls,
+video.cinebox-native-video::-webkit-media-controls-enclosure,
+video.cinebox-native-video::-webkit-media-controls-panel {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+/* Subtle Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.35);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(225, 29, 72, 0.55);
+}
+
+@keyframes trailer-arm {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-trailer-arm {
+  transform-origin: left center;
+  animation: trailer-arm 1.55s linear forwards;
+}
+

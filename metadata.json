@@ -1,0 +1,8 @@
+{
+  "name": "CineBox 2",
+  "description": "Cinema streaming hub for Movies, Series, Live TV, and Interactive EPG Guide.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
